@@ -8,6 +8,9 @@ fig = plt.figure()
 ax = fig.gca(projection='3d')
 
 x, y = np.linspace(-1, 5, 25), np.linspace(-6, 6, 25)
+YY, XX = np.meshgrid(x, y, indexing="ij")
+ZZ = XX*YY**4 + 2
+
 params, order = poly_n_fit(ZZ, [3, 3], x, y, max_total_order=None)
 ZZ_eval, F_fit = poly_n_val(order, params, x, y)
 
